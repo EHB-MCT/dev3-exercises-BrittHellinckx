@@ -1,8 +1,8 @@
 fun main(){
-    var options = arrayOf("rock", "paper", "scissors")
-    var optionsPc = options.random()
+    val options = arrayOf("rock", "paper", "scissors")
+    val optionsPc = options.random()
         //options[(0..2).random()]
-    var userInput = readLine()
+    val userInput = readLine()
 
     println("You chose $userInput")
     println("Computer chose $optionsPc")
