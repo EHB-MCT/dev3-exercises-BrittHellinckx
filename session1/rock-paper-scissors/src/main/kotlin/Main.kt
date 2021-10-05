@@ -3,6 +3,8 @@ fun main(){
     var optionsPc = options[(0..2).random()]
     var userInput = readLine()
 
+    println("$optionsPc")
+
     if(userInput== "rock"){
         when (optionsPc){
             "rock" -> println("Draw: Computer chose $optionsPc")
