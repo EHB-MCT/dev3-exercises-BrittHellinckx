@@ -2,6 +2,7 @@ fun main(){
     val options = arrayOf("rock", "paper", "scissors")
     val optionsPc = options.random()
         //options[(0..2).random()]
+    println("Make your choice: rock - paper - scissor")
     val userInput = readLine()
 
     println("You chose $userInput")
