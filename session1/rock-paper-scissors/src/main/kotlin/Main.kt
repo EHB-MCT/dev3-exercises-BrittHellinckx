@@ -1,29 +1,31 @@
 fun main(){
     var options = arrayOf("rock", "paper", "scissors")
-    var optionsPc = options[(0..2).random()]
+    var optionsPc = options.random()
+        //options[(0..2).random()]
     var userInput = readLine()
 
-    println("$optionsPc")
+    println("You chose $userInput")
+    println("Computer chose $optionsPc")
 
     if(userInput== "rock"){
         when (optionsPc){
-            "rock" -> println("Draw: Computer chose $optionsPc")
-            "paper" ->println("You lose: Computer chose $optionsPc")
-            "scissors"->println("You win: Computer chose $optionsPc")
+            "rock" -> println("Draw")
+            "paper" ->println("You lose")
+            "scissors"->println("You win")
         }
-    }
-    if(userInput== "paper"){
+    } else if(userInput== "paper"){
         when (optionsPc){
-            "paper" -> println("Draw: Computer chose $optionsPc")
-            "scissors" ->println("You lose: Computer chose $optionsPc")
-            "rock"->println("You win: Computer chose $optionsPc")
+            "paper" -> println("Draw")
+            "scissors" ->println("You lose")
+            "rock"->println("You win")
         }
-    }
-    if(userInput== "scissors"){
+    } else if(userInput== "scissors"){
         when (optionsPc){
-            "scissors" -> println("Draw: Computer chose $optionsPc")
-            "rock" ->println("You lose: Computer chose $optionsPc")
-            "paper"->println("You win: Computer chose $optionsPc")
+            "scissors" -> println("Draw")
+            "rock" ->println("You lose")
+            "paper"->println("You win")
         }
+    }else{
+        println("Invalid option")
     }
 }
