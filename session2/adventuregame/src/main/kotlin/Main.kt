@@ -33,17 +33,17 @@ fun challengeTwo(){
             "a lot of coffee"->{
                 println("You drank too much coffee and can't focus on school")
                 gameOver()
-        }
+            }
     }else if(pcRandom=>4){
         when(userInput)
             "a lot of coffee" -> challengeThree()
             "little coffee"->{
-        println("You drank too little coffee and fell asleep again")
-        gameOver()
-        }
+                println("You drank too little coffee and fell asleep again")
+                gameOver()
+            }
     }
 }
 fun challengeThree(){
     println("Perfect amount of coffee")
-    
+
 }
