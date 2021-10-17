@@ -1,6 +1,6 @@
 fun main(){
     println("Ready to start your day?")
-    challengeOne()
+    challengeFive()
 }
 fun gameOver(){
     println("Ready to try again?")
@@ -24,7 +24,7 @@ fun challengeOne(){
 fun challengeTwo(){
     println("Now time for breakfast, how many cups of coffee are you going to drink?")
     println("Are you going to choose little coffee (1-3 cups) or a lot of coffee (4-6 cups)?")
-    val pcRandom = (0..6).random()
+    val pcRandom = 0 //(0..6).random()
     val userInput = readLine()
 
     if(pcRandom<=3){
@@ -57,7 +57,10 @@ fun challengeThree(){
         println("Oh no, you don't have enough energy, go back and drink some more coffee")
         challengeTwo()
     }
-        "by bike"-> challengeFour()
+        "by bike"-> {
+            println("Yay! You made it on time. Now quickly, where do you need to be?")
+            println("Choose a classroom between 1 and 100")
+            challengeFour()}
         "with the train"->{
         println("That wasn't very smart... Of course there are train delays and so you misses school")
         gameOver()
@@ -66,10 +69,7 @@ fun challengeThree(){
 }
 val pcGuess = (1..100).random()
 fun challengeFour(){
-    println("Yay! You made it on time. Now quickly, where do you need to be?")
-    println("Choose a classroom between 1 and 100")
-
-    val userInput = readLine ()
+    val userInput = Integer.valueOf(readLine())
 
     if (userInput == pcGuess){
         challengeFive()
@@ -83,9 +83,34 @@ fun challengeFour(){
 }
 fun challengeFive(){
     println("You picked the right one, now time for class")
+    println("The assignment is written on the board but the teacher has horrible writing")
+    println("Try to make out what it says: silent")
+    val userInput = readLine()
 
-    //listen/silent
-    //study/dusty
-    //learn/renal
-    //read/dear
+    //fist guess
+    if(userInput == "listen"){
+        println("You did it! You finished class and finally can go home")
+    }else{
+        println("That was not the assignment and the teacher has changed it")
+        print("Try to make out what it says: dusty")
+        val userInput2 = readLine()
+
+    //second guess
+        if(userInput2 == "study"){
+            println("You did it! You finished class and finally can go home")
+        }else{
+            println("That was not the assignment and the teacher has changed it")
+            println("Quickly finish the assignment because school is almost over")
+            print("Try to make out what it says: dear")
+            val userInput3 = readLine()
+
+    //Third guess
+            if(userInput3 == "read"){
+                println("You did it! You finished class and finally can go home")
+            }else{
+                println("Oh no, you didn't do the assignment in time and failed the class")
+                gameOver()
+            }
+        }
+    }
 }
