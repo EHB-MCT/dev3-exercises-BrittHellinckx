@@ -7,6 +7,5 @@ class Course(
     val semester: Int,
     val required: Boolean,
     val description: String
-
 ) {
 }
