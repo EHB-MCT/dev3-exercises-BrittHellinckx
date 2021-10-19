@@ -1,12 +1,13 @@
 fun main(){
-    val britt = Student("Britt")
-    val liese = Comedian("Liese")
-    val bert = Teacher("Bert")
-    val bot = Chatbot("Bottie")
+    val persons = arrayOf(Student("Britt"),Comedian("Liese") ,Teacher("Bert"), Chatbot("Bottie"))
 
-    val persons = arrayListOf(britt, liese, bert, bot)
+    val person = persons.random()
+    person.introduce()
+    person.chat()
 
-    var random=persons.random()
+    /*
+    Eigen code
+    val random = persons.random()
     random.introduce()
     when(random){
         is Student -> random.gossip()
@@ -14,13 +15,6 @@ fun main(){
         is Teacher -> random.fact()
         is Chatbot -> random.chat()
     }
+    */
 
-    random=persons.random()
-    random.introduce()
-    when(random){
-        is Student -> random.gossip()
-        is Comedian -> random.joke()
-        is Teacher -> random.fact()
-        is Chatbot -> random.chat()
-    }
 }
