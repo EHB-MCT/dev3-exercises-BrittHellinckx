@@ -1,5 +1,5 @@
-class Person(val name:String) {
-    fun introduce(){
-        println("Hello, I'm $name")
+open class Person(open val name: String) {
+    open fun introduce() {
+        println("hello! I'm $name")
     }
 }
