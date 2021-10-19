@@ -1,6 +1,6 @@
 fun main(){
     println("Ready to start your day?")
-    challengeFive()
+    challengeOne()
 }
 fun gameOver(){
     println("Ready to try again?")
@@ -24,7 +24,7 @@ fun challengeOne(){
 fun challengeTwo(){
     println("Now time for breakfast, how many cups of coffee are you going to drink?")
     println("Are you going to choose little coffee (1-3 cups) or a lot of coffee (4-6 cups)?")
-    val pcRandom = 0 //(0..6).random()
+    val pcRandom = (0..6).random()
     val userInput = readLine()
 
     if(pcRandom<=3){
