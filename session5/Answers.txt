@@ -13,3 +13,32 @@ First Batch
 
 - SELECT productName FROM products WHERE productLine = 'Ships'
   Answer: 9
+
+
+Second Batch
+- SELECT * FROM orders WHERE customerNumber ='328'
+  Answer: 3
+
+- SELECT * FROM customers 
+  LEFT JOIN orders ON orders.customerNumber = customers.customerNumber 
+  WHERE customers.contactLastName='Young' AND customers.contactFirstName ='Julie'
+  Answer: 3
+
+- SELECT * FROM customers WHERE customers.country='USA' AND customers.creditLimit ='0'
+  Answer: 1
+
+- SELECT customerName, AVG(amount) as average FROM customers 
+  INNER JOIN payments ON payments.customerNumber = customers.customerNumber
+  GROUP BY payments.customerNumber 
+  ORDER BY (average) DESC
+  LIMIT 1
+  Answer: 80375.240000
+
+Third Batch
+- 
+
+- 
+
+- 
+
+- 
