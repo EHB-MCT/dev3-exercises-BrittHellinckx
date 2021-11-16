@@ -1,22 +1,26 @@
 First Batch
-- SELECT productName FROM products WHERE productCode = 'S24_3856'
+- SELECT productName FROM products 
+  WHERE productCode = 'S24_3856'
   Answer: 1956 Porsche 356A Coupe
 
 - SELECT avg(buyPrice) FROM products
   Answer: 54.395182
 
-- SELECT productName FROM products WHERE productName LIKE '%Ford%'
+- SELECT productName FROM products 
+  WHERE productName LIKE '%Ford%'
   Answer: 15
 
 - SELECT max(buyPrice) FROM products
   Answer: 103.42
 
-- SELECT productName FROM products WHERE productLine = 'Ships'
+- SELECT productName FROM products 
+  WHERE productLine = 'Ships'
   Answer: 9
 
 
 Second Batch
-- SELECT * FROM orders WHERE customerNumber ='328'
+- SELECT * FROM orders 
+  WHERE customerNumber ='328'
   Answer: 3
 
 - SELECT * FROM customers 
@@ -24,7 +28,8 @@ Second Batch
   WHERE customers.contactLastName='Young' AND customers.contactFirstName ='Julie'
   Answer: 3
 
-- SELECT * FROM customers WHERE customers.country='USA' AND customers.creditLimit ='0'
+- SELECT * FROM customers 
+  WHERE customers.country='USA' AND customers.creditLimit ='0'
   Answer: 1
 
 - SELECT customerName, AVG(amount) as average FROM customers 
@@ -33,6 +38,7 @@ Second Batch
   ORDER BY (average) DESC
   LIMIT 1
   Answer: 80375.240000
+
 
 Third Batch
 - SELECT SUM(amount) FROM customers 
