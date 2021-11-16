@@ -37,7 +37,7 @@ Second Batch
   GROUP BY payments.customerNumber 
   ORDER BY (average) DESC
   LIMIT 1
-  Answer: 80375.240000
+  Answer: Collectable Mini Designs Co. with 80375.240000
 
 
 Third Batch
