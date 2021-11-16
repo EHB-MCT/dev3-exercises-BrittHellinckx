@@ -35,10 +35,24 @@ Second Batch
   Answer: 80375.240000
 
 Third Batch
-- 
+- SELECT SUM(amount) FROM customers 
+  INNER JOIN payments ON payments.customerNumber = customers.customerNumber
+  WHERE customers.contactLastName='Brown' AND customers.contactFirstName = 'William' AND paymentDate LIKE '2004%'
+  Answer: 38281.51
 
-- 
+- SELECT firstName, lastName, customerName FROM customers 
+  INNER JOIN employees ON employees.employeeNumber = customers.salesRepEmployeeNumber
+  Answer:  	Leslie	Thompson	West Coast Collectables Co.
+		Barry	Jones		Volvo Model Replicas, Co
+		Foon 	Yue		Tseng	Vitachrome Inc.
+		Martin	Gerard		Vida Sport, Ltd
+		Larry	Bott		UK Collectables, Ltd.
+		Leslie	Thompson	Toys4GrownUps.com
+		(94 more lines)
 
-- 
-
-- 
+- SELECT customerName, offices.officeCode FROM customers 
+  INNER JOIN employees ON employees.employeeNumber = customers.salesRepEmployeeNumber
+  INNER JOIN offices ON employees.officeCode = offices.officeCode
+  WHERE customerName = 'The Sharp Gifts Warehouse'
+  Answer: 1
+ 
