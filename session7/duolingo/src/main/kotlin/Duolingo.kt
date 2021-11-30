@@ -19,11 +19,25 @@ class Duolingo {
                                         Word("ane", "ezel", "fr"),
                                         Word("snake", "slang", "en"),
                                         Word("serpent", "slang", "fr"))
+
     fun play(){
-        words.shuffle();
-        val randomWords = words.take(5)
-        randomWords.forEach{
-            println("Vertaal " + it.original + " in het het Nederlands")
+        //words.shuffle();
+        val randomWords = words.shuffled().take(5).toMutableSet();
+
+        while(randomWords.isNotEmpty()){
+            val selectedWord = randomWords.random()
+                println("Vertaal " + selectedWord.original + " in het het Nederlands")
+                val userInput = readLine()
+                if(userInput == selectedWord.translated){
+                    randomWords.remove(selectedWord);
+                    println("Dat is juist!")
+                }else{
+                    println("Fout! De juiste vertaling is ${selectedWord.translated}")
+                }
+            when{
+               randomWords.count()==0 -> println("Goed gedaan!")
+                randomWords.count()>0 -> println("Nog " + randomWords.count())
+            }
         }
     }
 }
