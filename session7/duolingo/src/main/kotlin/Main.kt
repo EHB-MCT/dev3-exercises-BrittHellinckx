@@ -1,3 +1,4 @@
 fun main(){
-    println("hello");
+    val duo = Duolingo();
+    duo.play();
 }
