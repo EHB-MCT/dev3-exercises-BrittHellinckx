@@ -1,4 +1,4 @@
-class Duolingo {
+class Duolingo (val size:Int, val lan: String){
         val words = mutableListOf<Word>(Word("cat", "kat", "en"),
                                         Word("chat", "kat", "fr"),
                                         Word("bunny", "konijn", "en"),
@@ -20,9 +20,11 @@ class Duolingo {
                                         Word("snake", "slang", "en"),
                                         Word("serpent", "slang", "fr"))
 
+    val filterWords = words.filter{words -> words.language == lan}
+
     fun play(){
-        //words.shuffle();
-        val randomWords = words.shuffled().take(5).toMutableSet();
+        val randomWords = filterWords.shuffled().take(size).toMutableSet();
+
 
         while(randomWords.isNotEmpty()){
             val selectedWord = randomWords.random()
