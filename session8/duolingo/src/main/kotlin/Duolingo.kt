@@ -1,40 +1,19 @@
 class Duolingo (val lan: String){
-        val words = mutableListOf<Word>(
-            EnglishWord("cat", "kat"),
-            FrenchWord("chat", "kat"),
-            EnglishWord("bunny", "konijn"),
-            FrenchWord("lapin", "konijn"),
-            EnglishWord("dog", "hond"),
-            FrenchWord("chien", "hond"),
-            EnglishWord("fish", "vis"),
-            FrenchWord("poisson", "vis"),
-            EnglishWord("horse", "paard"),
-            FrenchWord("cheval", "paard"),
-            EnglishWord("goat", "geit"),
-            FrenchWord("chevre", "geit"),
-            EnglishWord("chicken", "kip"),
-            FrenchWord("poulet", "kip"),
-            EnglishWord("mouse", "muis"),
-            FrenchWord("souris", "muis"),
-            EnglishWord("donkey", "ezel"),
-            FrenchWord("ane", "ezel"),
-            EnglishWord("snake", "slang"),
-            FrenchWord("serpent", "slang")
-        )
+    val wordDeck = WordDeck()
     init{
         println("Choose your round difficulty: easy - hard")
-        var diff = readLine()!!.toString();
+        val difficulty = readLine()!!.toString();
         var size = 0;
-        if(diff =="easy"){
+        if(difficulty =="easy"){
             size = 5;
-        }else if (diff == "hard"){
+        }else if (difficulty == "hard"){
             size = 10;
         }else{
             throw Exception("Please provide a valid difficulty")
-            main();
         }
-        var randomWords = words.shuffled().filter{it.language == lan}.take(size).toMutableList();
-        play(randomWords)
+        wordDeck.filterByLanguage(lan)
+        //val randomWords = words.shuffled().filter{it.language == lan}.take(size).toMutableList();
+        play(wordDeck)
     }
 
     fun play(randomWords:MutableList<Word>){
