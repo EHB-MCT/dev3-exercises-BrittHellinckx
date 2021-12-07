@@ -1,4 +1,4 @@
-class Duolingo (val size:Int, val lan: String){
+class Duolingo (val lan: String){
         val words = mutableListOf<Word>(
             EnglishWord("cat", "kat"),
             FrenchWord("chat", "kat"),
@@ -22,6 +22,17 @@ class Duolingo (val size:Int, val lan: String){
             FrenchWord("serpent", "slang")
         )
     init{
+        println("Choose your round difficulty: easy - hard")
+        var diff = readLine()!!.toString();
+        var size = 0;
+        if(diff =="easy"){
+            size = 5;
+        }else if (diff == "hard"){
+            size = 10;
+        }else{
+            throw Exception("Please provide a valid difficulty")
+            main();
+        }
         var randomWords = words.shuffled().filter{it.language == lan}.take(size).toMutableList();
         play(randomWords)
     }
