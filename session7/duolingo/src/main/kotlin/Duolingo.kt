@@ -22,22 +22,22 @@ class Duolingo (val size:Int, val lan: String){
             FrenchWord("serpent", "slang")
         )
     init{
-        var randomWords = mutableSetOf<Word>()
+        var randomWords = mutableListOf<Word>()
         when (lan) {
             "en" -> {
-                randomWords = words.shuffled().filterIsInstance<EnglishWord>().take(size).toMutableSet();
+                randomWords = words.shuffled().filterIsInstance<EnglishWord>().take(size).toMutableList();
             }
             "fr" -> {
-                randomWords = words.shuffled().filterIsInstance<FrenchWord>().take(size).toMutableSet();
+                randomWords = words.shuffled().filterIsInstance<FrenchWord>().take(size).toMutableList();
             }
             else -> {
                 println("This language is not available")
             }
         }
-        play(size, randomWords)
+        play(randomWords)
     }
 
-    fun play(size:Int, randomWords:MutableSet<Word>){
+    fun play(randomWords:MutableList<Word>){
         while(randomWords.isNotEmpty()){
             val selectedWord = randomWords.random()
                 println("Vertaal " + selectedWord.original + " in het het Nederlands")
