@@ -1,31 +1,43 @@
 class Duolingo (val size:Int, val lan: String){
-        val words = mutableListOf<Word>(Word("cat", "kat", "en"),
-                                        Word("chat", "kat", "fr"),
-                                        Word("bunny", "konijn", "en"),
-                                        Word("lapin", "konijn", "fr"),
-                                        Word("dog", "hond", "en"),
-                                        Word("chien", "hond", "fr"),
-                                        Word("fish", "vis", "en"),
-                                        Word("poisson", "vis", "fr"),
-                                        Word("horse", "paard", "en"),
-                                        Word("cheval", "paard", "fr"),
-                                        Word("goat", "geit", "en"),
-                                        Word("chevre", "geit", "fr"),
-                                        Word("chicken", "kip", "en"),
-                                        Word("poulet", "kip", "fr"),
-                                        Word("mouse", "muis", "en"),
-                                        Word("souris", "muis", "fr"),
-                                        Word("donkey", "ezel", "en"),
-                                        Word("ane", "ezel", "fr"),
-                                        Word("snake", "slang", "en"),
-                                        Word("serpent", "slang", "fr"))
+        val words = mutableListOf<Word>(
+            EnglishWord("cat", "kat"),
+            FrenchWord("chat", "kat"),
+            EnglishWord("bunny", "konijn"),
+            FrenchWord("lapin", "konijn"),
+            EnglishWord("dog", "hond"),
+            FrenchWord("chien", "hond"),
+            EnglishWord("fish", "vis"),
+            FrenchWord("poisson", "vis"),
+            EnglishWord("horse", "paard"),
+            FrenchWord("cheval", "paard"),
+            EnglishWord("goat", "geit"),
+            FrenchWord("chevre", "geit"),
+            EnglishWord("chicken", "kip"),
+            FrenchWord("poulet", "kip"),
+            EnglishWord("mouse", "muis"),
+            FrenchWord("souris", "muis"),
+            EnglishWord("donkey", "ezel"),
+            FrenchWord("ane", "ezel"),
+            EnglishWord("snake", "slang"),
+            FrenchWord("serpent", "slang")
+        )
+    init{
+        var randomWords = mutableSetOf<Word>()
+        when (lan) {
+            "en" -> {
+                randomWords = words.shuffled().filterIsInstance<EnglishWord>().take(size).toMutableSet();
+            }
+            "fr" -> {
+                randomWords = words.shuffled().filterIsInstance<FrenchWord>().take(size).toMutableSet();
+            }
+            else -> {
+                println("This language is not available")
+            }
+        }
+        play(size, randomWords)
+    }
 
-    val filterWords = words.filter{words -> words.language == lan}
-
-    fun play(){
-        val randomWords = filterWords.shuffled().take(size).toMutableSet();
-
-
+    fun play(size:Int, randomWords:MutableSet<Word>){
         while(randomWords.isNotEmpty()){
             val selectedWord = randomWords.random()
                 println("Vertaal " + selectedWord.original + " in het het Nederlands")
