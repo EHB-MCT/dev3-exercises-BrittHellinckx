@@ -22,18 +22,7 @@ class Duolingo (val size:Int, val lan: String){
             FrenchWord("serpent", "slang")
         )
     init{
-        var randomWords = mutableListOf<Word>()
-        when (lan) {
-            "en" -> {
-                randomWords = words.shuffled().filterIsInstance<EnglishWord>().take(size).toMutableList();
-            }
-            "fr" -> {
-                randomWords = words.shuffled().filterIsInstance<FrenchWord>().take(size).toMutableList();
-            }
-            else -> {
-                println("This language is not available")
-            }
-        }
+        var randomWords = words.shuffled().filter{it.language == lan}.take(size).toMutableList();
         play(randomWords)
     }
 
